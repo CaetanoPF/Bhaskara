@@ -5,31 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../js/script.js">
+    
     <title>Calculadora de Bhaskara</title>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Calculadora de Bhaskara</h1>
-        <form id="bhaskara-form">
-            <label for="a">Valor de A:</label>
-            <input type="text" id="a" name="a" required>
 
-            <label for="b">Valor de B:</label>
-            <input type="text" id="b" name="b" required>
+    <body>
+        <div>
+            <h1>Calculadora de Bhaskara</h1>
+            <form id="bhaskaraForm">
+                <label for="valorA">Valor de A:</label>
+                <input type="number" id="valorA" required><br><br>
 
-            <label for="c">Valor de C:</label>
-            <input type="text" id="c" name="c" required>
+                <label for="valorB">Valor de B:</label>
+                <input type="number" id="valorB" required><br><br>
 
-            <div class="btn-container">
-                <button type="button" onclick="calcularBhaskara()">Calcular</button>
-                <button type="reset">Limpar Formulário</button>
-            </div>
-        </form>
+                <label for="valorC">Valor de C:</label>
+                <input type="number" id="valorC" required><br><br>
 
-        <div id="resultado"></div>
-    </div>
-</body>
+                <input type="submit" value="Calcular">
+                <div id="resultado"></div>
+            </form>
+
+        </div>
+        <script>
+            document.getElementById("bhaskaraForm").addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                var valorA = parseFloat(document.getElementById("valorA").value);
+                var valorB = parseFloat(document.getElementById("valorB").value);
+                var valorC = parseFloat(document.getElementById("valorC").value);
+
+                var delta = valorB * valorB - 4 * valorA * valorC;
+
+                if (delta < 0) {
+                    document.getElementById("resultado").innerHTML = "A equação não possui raízes reais.";
+                } else if (delta === 0) {
+                    var x = -valorB / (2 * valorA);
+                    document.getElementById("resultado").innerHTML = "A equação possui uma raiz real: X = " + x;
+                } else {
+                    var x1 = (-valorB + Math.sqrt(delta)) / (2 * valorA);
+                    var x2 = (-valorB - Math.sqrt(delta)) / (2 * valorA);
+                    document.getElementById("resultado").innerHTML = "A equação possui duas raízes reais: X1 = " + x1 + " e X2 = " + x2;
+                }
+            });
+        </script>
+    </body>
 
 </html>
