@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../js/script.js">
+    <title>Calculadora de Bhaskara</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Calculadora de Bhaskara</h1>
+        <form id="bhaskara-form">
+            <label for="a">Valor de A:</label>
+            <input type="text" id="a" name="a" required>
+
+            <label for="b">Valor de B:</label>
+            <input type="text" id="b" name="b" required>
+
+            <label for="c">Valor de C:</label>
+            <input type="text" id="c" name="c" required>
+
+            <div class="btn-container">
+                <button type="button" onclick="calcularBhaskara()">Calcular</button>
+                <button type="reset">Limpar Formulário</button>
+            </div>
+        </form>
+
+        <div id="resultado"></div>
+    </div>
+</body>
+
+</html>
